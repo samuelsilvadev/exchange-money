@@ -1,0 +1,4 @@
+{
+     "*.{js, css, json}": ["npm run prettier"],
+     "*.js": ["npm run lint"],
+}
