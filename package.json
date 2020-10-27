@@ -1,0 +1,19 @@
+{
+  "name": "exchange-money",
+  "version": "0.0.0",
+  "description": "Exchange your money easily and in an intuitive way.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelsilvadev/exchange-money.git"
+  },
+  "author": "Samuel Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samuelsilvadev/exchange-money/issues"
+  },
+  "homepage": "https://github.com/samuelsilvadev/exchange-money#readme"
+}
