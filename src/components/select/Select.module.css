@@ -1,0 +1,40 @@
+.selectWrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.selectLabel {
+	order: 1;
+	font-size: 1.4rem;
+	color: var(--gray);
+}
+
+.select {
+	appearance: none;
+	background: transparent;
+	border-radius: 0;
+	border: none;
+	position: relative;
+	flex-grow: 1;
+	cursor: pointer;
+	font-size: 2rem;
+	padding: 0.5rem 0 0.25rem;
+	text-transform: uppercase;
+}
+
+.select::-ms-clear {
+	display: none;
+}
+
+.selectIconWrapper {
+	display: flex;
+	position: relative;
+}
+
+.selectIcon {
+	position: absolute;
+	right: 0;
+	height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}

@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--gray: #9e9ea7;
+}
+
 html {
 	font-size: 62.5%;
 }

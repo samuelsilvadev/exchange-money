@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> should render correctly 1`] = `
+<div
+  class="selectWrapper"
+>
+  <label
+    class="selectLabel"
+    for="color"
+  >
+    color
+  </label>
+  <div
+    class="selectIconWrapper"
+  >
+    <select
+      class="select"
+      id="color"
+    >
+      <option>
+        Red
+      </option>
+      <option>
+        Blue
+      </option>
+      <option>
+        Green
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="selectIcon"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"
+      />
+    </svg>
+  </div>
+</div>
+`;
