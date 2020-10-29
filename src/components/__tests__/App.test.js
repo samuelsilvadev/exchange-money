@@ -5,9 +5,10 @@ import App from '../App';
 
 describe('<App />', () => {
 	it('should render correctly', () => {
-		const { container, getByText } = render(<App />);
+		const { container, getByText, getByLabelText } = render(<App />);
 
-		expect(getByText('Money Exchange')).toBeVisible();
+		expect(getByText('Pockets')).toBeVisible();
+		expect(getByLabelText('Pocket')).toBeVisible();
 		expect(container.firstChild).toMatchSnapshot();
 	});
 });

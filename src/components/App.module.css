@@ -1,0 +1,30 @@
+.wrapper {
+	background-color: var(--whitesmoke);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding: 5rem 2rem;
+}
+
+.pocketsWrapper {
+	width: 100%;
+}
+
+.exchangeMoneyWrapper {
+	width: 100%;
+}
+
+@media (min-width: 64em) {
+	.wrapper {
+		flex-direction: row;
+		padding: 10rem 20rem;
+	}
+
+	.pocketsWrapper {
+		width: 40%;
+	}
+
+	.exchangeMoneyWrapper {
+		width: 60%;
+	}
+}
