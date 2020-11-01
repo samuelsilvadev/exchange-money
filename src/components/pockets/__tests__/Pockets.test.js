@@ -1,43 +1,62 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import {
-	PocketsProvider,
-	pockets,
-} from '../../../providers/pockets/PocketsProvider';
+import { PocketsProvider } from '../../../providers/pockets/PocketsProvider';
 import Pockets from '../Pockets';
 
+jest.mock('../../../services/pockets', () => ({
+	getPockets: () =>
+		Promise.resolve([
+			{
+				label: 'USD',
+				value: 1000,
+			},
+			{
+				label: 'GBP',
+				value: 5000,
+			},
+			{
+				label: 'EUR',
+				value: 2000,
+			},
+		]),
+}));
+
 describe('<Pockets />', () => {
-	it('should render correctly', () => {
+	it('should render correctly', async () => {
 		const { container, getByLabelText, getByText } = render(
 			<PocketsProvider>
 				<Pockets />
 			</PocketsProvider>
 		);
 
-		expect(getByLabelText('Pocket')).toBeVisible();
-		expect(getByText('Total Ballance')).toBeVisible();
+		await waitFor(() => {
+			expect(getByLabelText('Pocket')).toBeVisible();
+			expect(getByText('Total Ballance')).toBeVisible();
 
-		expect(getByText(pockets[0].label)).toBeVisible();
-		expect(getByText(pockets[0].value.toString())).toBeVisible();
-		expect(container.firstChild).toMatchSnapshot();
+			expect(getByText('USD')).toBeVisible();
+			expect(getByText('1000')).toBeVisible();
+			expect(container.firstChild).toMatchSnapshot();
+		});
 	});
 
-	it('should change the selected pocket correctly', () => {
+	it('should change the selected pocket correctly', async () => {
 		const { getByLabelText, getByText } = render(
 			<PocketsProvider>
 				<Pockets />
 			</PocketsProvider>
 		);
 
-		const select = getByLabelText('Pocket');
+		await waitFor(() => {
+			const select = getByLabelText('Pocket');
 
-		expect(getByText(pockets[0].label)).toBeVisible();
-		expect(getByText(pockets[0].value.toString())).toBeVisible();
+			expect(getByText('USD')).toBeVisible();
+			expect(getByText('1000')).toBeVisible();
 
-		fireEvent.change(select, { target: { value: 'GBP' } });
+			fireEvent.change(select, { target: { value: 'GBP' } });
 
-		expect(getByText(pockets[1].label)).toBeVisible();
-		expect(getByText(pockets[1].value.toString())).toBeVisible();
+			expect(getByText('GBP')).toBeVisible();
+			expect(getByText('5000')).toBeVisible();
+		});
 	});
 });

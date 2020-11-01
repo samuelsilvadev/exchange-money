@@ -65,12 +65,14 @@ exports[`<MoneyConverter /> should render correctly 1`] = `
       >
         <label
           class="label"
+          for="converter-panel-input-You spend"
         >
           You spend
         </label>
         <input
           class="input"
-          type="text"
+          id="converter-panel-input-You spend"
+          type="number"
           value=""
         />
       </div>
@@ -155,18 +157,22 @@ exports[`<MoneyConverter /> should render correctly 1`] = `
       >
         <label
           class="label"
+          for="converter-panel-input-You get"
         >
           You get
         </label>
         <input
           class="input"
-          type="text"
+          id="converter-panel-input-You get"
+          type="number"
           value=""
         />
       </div>
     </div>
   </div>
-  <div>
+  <div
+    class="marketRateWrapper"
+  >
     <p
       class="marketRateDescription"
     >
@@ -175,7 +181,7 @@ exports[`<MoneyConverter /> should render correctly 1`] = `
     <p
       class="marketRateValue"
     >
-      -
+      1 USD = 1 USD
     </p>
   </div>
   <button

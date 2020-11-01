@@ -57,12 +57,14 @@ exports[`<MoneyConverterPanel /> should render correctly 1`] = `
   >
     <label
       class="label"
+      for="converter-panel-input-You get"
     >
       You get
     </label>
     <input
       class="input"
-      type="text"
+      id="converter-panel-input-You get"
+      type="number"
       value=""
     />
   </div>

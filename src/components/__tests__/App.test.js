@@ -7,6 +7,10 @@ jest.mock('../../services/market-rates', () => ({
 	getMarketRates: () => Promise.resolve(),
 }));
 
+jest.mock('../../services/pockets', () => ({
+	getPockets: () => Promise.resolve(),
+}));
+
 describe('<App />', () => {
 	it('should render correctly', async () => {
 		const { container, getByText, getByLabelText } = render(<App />);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -10,9 +10,19 @@ import styles from './Pockets.module.css';
 function Pockets(props) {
 	const { className } = props;
 
-	const pockets = usePocketsContext();
+	const { result: pockets } = usePocketsContext();
 
-	const [selectedPocket, setSelectedPocket] = useState(pockets[0]);
+	const [selectedPocket, setSelectedPocket] = useState(pockets?.[0]);
+
+	useEffect(() => {
+		if (pockets.length > 0) {
+			const updatedPocket = pockets.find(
+				(pocket) => pocket.label === selectedPocket?.label
+			);
+
+			setSelectedPocket(updatedPocket ?? pockets[0]);
+		}
+	}, [pockets, selectedPocket]);
 
 	const handleChange = (event) => {
 		const label = event.target.value;
@@ -45,7 +55,9 @@ function Pockets(props) {
 				})}
 			</Select>
 			<div>
-				<p className={styles.pocketBallance}>{selectedPocket.value}</p>
+				<p className={styles.pocketBallance}>
+					{selectedPocket?.value ?? '-'}
+				</p>
 				<p className={styles.pocketBallanceDescription}>
 					Total Ballance
 				</p>

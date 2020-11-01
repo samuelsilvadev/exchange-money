@@ -41,12 +41,30 @@
 	padding: 2rem;
 }
 
+.converterButton:disabled {
+	background-color: var(--gray);
+	cursor: not-allowed;
+}
+
+.marketRateWrapper {
+	margin-bottom: 2rem;
+}
+
 .marketRateDescription {
 	color: var(--gray);
 }
 
 .marketRateValue {
 	font-size: 2rem;
+}
+
+.errorPanel {
+	background: var(--error);
+	color: var(--black);
+	margin-bottom: 2rem;
+	padding: 1rem;
+	text-align: center;
+	width: 100%;
 }
 
 @media (min-width: 48em) {
@@ -61,5 +79,13 @@
 
 	.swapButton {
 		margin: 0 3rem;
+	}
+
+	.marketRateWrapper {
+		margin-bottom: 0;
+	}
+
+	.errorPanel {
+		padding: 2rem 5rem;
 	}
 }

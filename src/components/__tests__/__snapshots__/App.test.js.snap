@@ -27,23 +27,7 @@ exports[`<App /> should render correctly 1`] = `
         <select
           class="select"
           id="pocket"
-        >
-          <option
-            value="USD"
-          >
-            USD
-          </option>
-          <option
-            value="GBP"
-          >
-            GBP
-          </option>
-          <option
-            value="EUR"
-          >
-            EUR
-          </option>
-        </select>
+        />
         <svg
           aria-hidden="true"
           class="selectIcon"
@@ -66,7 +50,7 @@ exports[`<App /> should render correctly 1`] = `
       <p
         class="pocketBallance"
       >
-        1000
+        -
       </p>
       <p
         class="pocketBallanceDescription"
@@ -99,23 +83,7 @@ exports[`<App /> should render correctly 1`] = `
             <select
               class="select"
               id="converter-panel-You spend"
-            >
-              <option
-                value="USD"
-              >
-                USD
-              </option>
-              <option
-                value="GBP"
-              >
-                GBP
-              </option>
-              <option
-                value="EUR"
-              >
-                EUR
-              </option>
-            </select>
+            />
             <svg
               aria-hidden="true"
               class="selectIcon"
@@ -139,12 +107,14 @@ exports[`<App /> should render correctly 1`] = `
         >
           <label
             class="label"
+            for="converter-panel-input-You spend"
           >
             You spend
           </label>
           <input
             class="input"
-            type="text"
+            id="converter-panel-input-You spend"
+            type="number"
             value=""
           />
         </div>
@@ -189,23 +159,7 @@ exports[`<App /> should render correctly 1`] = `
             <select
               class="select"
               id="converter-panel-You get"
-            >
-              <option
-                value="USD"
-              >
-                USD
-              </option>
-              <option
-                value="GBP"
-              >
-                GBP
-              </option>
-              <option
-                value="EUR"
-              >
-                EUR
-              </option>
-            </select>
+            />
             <svg
               aria-hidden="true"
               class="selectIcon"
@@ -229,18 +183,22 @@ exports[`<App /> should render correctly 1`] = `
         >
           <label
             class="label"
+            for="converter-panel-input-You get"
           >
             You get
           </label>
           <input
             class="input"
-            type="text"
+            id="converter-panel-input-You get"
+            type="number"
             value=""
           />
         </div>
       </div>
     </div>
-    <div>
+    <div
+      class="marketRateWrapper"
+    >
       <p
         class="marketRateDescription"
       >
@@ -254,6 +212,7 @@ exports[`<App /> should render correctly 1`] = `
     </div>
     <button
       class="converterButton"
+      disabled=""
     >
       Converter Now
     </button>
