@@ -1,0 +1,27 @@
+.inputWrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.input {
+	border: none;
+	border-bottom: 0.1rem solid;
+	height: 3rem;
+}
+
+.label {
+	font-size: 1.4rem;
+	color: var(--gray);
+}
+
+.select {
+	margin-bottom: 5rem;
+	padding: 1.5rem 2rem;
+	box-shadow: 0 0 0.7rem 0 rgb(50 50 50 / 10%);
+}
+
+@media (min-width: 48em) {
+	.select {
+		margin-bottom: 15rem;
+	}
+}

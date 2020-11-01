@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoneyConverterPanel /> should render correctly 1`] = `
+<div>
+  <div
+    class="selectWrapper select"
+  >
+    <label
+      class="selectLabel"
+      for="converter-panel-You get"
+    >
+      Currency
+    </label>
+    <div
+      class="selectIconWrapper"
+    >
+      <select
+        class="select"
+        id="converter-panel-You get"
+      >
+        <option
+          value="USD"
+        >
+          USD
+        </option>
+        <option
+          value="GBP"
+        >
+          GBP
+        </option>
+        <option
+          value="EUR"
+        >
+          EUR
+        </option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="selectIcon"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="inputWrapper"
+  >
+    <label
+      class="label"
+    >
+      You get
+    </label>
+    <input
+      class="input"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
