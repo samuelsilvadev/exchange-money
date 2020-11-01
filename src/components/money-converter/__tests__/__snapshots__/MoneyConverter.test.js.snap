@@ -173,7 +173,7 @@ exports[`<MoneyConverter /> should render correctly 1`] = `
       Market Rate
     </p>
     <p
-      class="marketRateValues"
+      class="marketRateValue"
     >
       -
     </p>

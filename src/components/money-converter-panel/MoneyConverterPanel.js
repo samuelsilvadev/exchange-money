@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { usePocketsContext } from '../../providers/pockets/PocketsProvider';
@@ -18,6 +18,17 @@ function MoneyConverterPanel(props) {
 	} = props;
 
 	const pockets = usePocketsContext();
+
+	useEffect(() => {
+		const event = {
+			target: {
+				value: pockets[0].label,
+			},
+		};
+
+		currencyHandler?.(event);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [pockets]);
 
 	return (
 		<div className={className}>

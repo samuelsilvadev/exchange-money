@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { MarketRatesProvider } from '../providers/market-rates/MarketRatesProvider';
 import { PocketsProvider } from '../providers/pockets/PocketsProvider';
 import Pockets from './pockets/Pockets';
 import MoneyConverter from './money-converter/MoneyConverter';
@@ -13,7 +14,9 @@ const App = () => {
 		<PocketsProvider>
 			<main className={styles.wrapper}>
 				<Pockets className={styles.pocketsWrapper} />
-				<MoneyConverter className={styles.exchangeMoneyWrapper} />
+				<MarketRatesProvider>
+					<MoneyConverter className={styles.exchangeMoneyWrapper} />
+				</MarketRatesProvider>
 			</main>
 		</PocketsProvider>
 	);

@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
+import { useMarketRatesContext } from '../../providers/market-rates/MarketRatesProvider';
 import MoneyConverterPanel from '../money-converter-panel/MoneyConverterPanel';
 import Swap from '../icons/Swap';
 
@@ -74,6 +75,22 @@ function reducer(state, action) {
 	}
 }
 
+function calculateCurrentRate({ from, to, rates = {}, base = 'USD' }) {
+	if (from.currency === base) {
+		return rates[to.currency];
+	}
+
+	if (to.currency === base) {
+		return 1 / rates[from.currency];
+	}
+
+	return rates[to.currency] * (1 / rates[from.currency]);
+}
+
+function formatCurrentRate(rate) {
+	return rate?.toString()?.slice(0, 6);
+}
+
 function MoneyConverter(props) {
 	const { className } = props;
 
@@ -88,6 +105,14 @@ function MoneyConverter(props) {
 		},
 	});
 
+	const { result: marketRates } = useMarketRatesContext();
+	const currentRate = calculateCurrentRate({
+		from: state.from,
+		to: state.to,
+		rates: marketRates,
+	});
+	const hasCurrentRate = typeof currentRate !== 'undefined';
+
 	const handleChangeFactory = (type) => (event) => {
 		dispatch({ type, payload: event.target.value });
 	};
@@ -95,6 +120,17 @@ function MoneyConverter(props) {
 	const handleSwapClick = () => {
 		dispatch({ type: ACTION_TYPES.SWAP_CURRENCIES });
 	};
+
+	useEffect(() => {
+		if (state.from.moneyAmount) {
+			dispatch({
+				type: ACTION_TYPES.SET_TO_MONEY_AMOUNT,
+				payload: formatCurrentRate(
+					state.from.moneyAmount * currentRate
+				),
+			});
+		}
+	}, [state.from.moneyAmount, currentRate]);
 
 	return (
 		<form
@@ -144,7 +180,13 @@ function MoneyConverter(props) {
 			</div>
 			<div>
 				<p className={styles.marketRateDescription}>Market Rate</p>
-				<p className={styles.marketRateValues}>-</p>
+				<p className={styles.marketRateValue}>
+					{hasCurrentRate
+						? `1 ${state.from.currency} = ${formatCurrentRate(
+								currentRate
+						  )} ${state.to.currency}`
+						: '-'}
+				</p>
 			</div>
 			<button className={styles.converterButton}>Converter Now</button>
 		</form>
