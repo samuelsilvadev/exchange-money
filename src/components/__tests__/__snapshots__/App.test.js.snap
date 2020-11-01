@@ -75,8 +75,188 @@ exports[`<App /> should render correctly 1`] = `
       </p>
     </div>
   </section>
-  <section
-    class="exchangeMoneyWrapper"
-  />
+  <form
+    class="wrapper exchangeMoneyWrapper"
+  >
+    <div
+      class="panelsWrapper"
+    >
+      <div
+        class="panel"
+      >
+        <div
+          class="selectWrapper select"
+        >
+          <label
+            class="selectLabel"
+            for="converter-panel-You spend"
+          >
+            Currency
+          </label>
+          <div
+            class="selectIconWrapper"
+          >
+            <select
+              class="select"
+              id="converter-panel-You spend"
+            >
+              <option
+                value="USD"
+              >
+                USD
+              </option>
+              <option
+                value="GBP"
+              >
+                GBP
+              </option>
+              <option
+                value="EUR"
+              >
+                EUR
+              </option>
+            </select>
+            <svg
+              aria-hidden="true"
+              class="selectIcon"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="inputWrapper"
+        >
+          <label
+            class="label"
+          >
+            You spend
+          </label>
+          <input
+            class="input"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        aria-label="Swap currencies"
+        class="swapButton"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-7h9v2h-4v3l-5-5zm5-4V6l5 5H8V9h4z"
+          />
+        </svg>
+      </button>
+      <div
+        class="panel"
+      >
+        <div
+          class="selectWrapper select"
+        >
+          <label
+            class="selectLabel"
+            for="converter-panel-You get"
+          >
+            Currency
+          </label>
+          <div
+            class="selectIconWrapper"
+          >
+            <select
+              class="select"
+              id="converter-panel-You get"
+            >
+              <option
+                value="USD"
+              >
+                USD
+              </option>
+              <option
+                value="GBP"
+              >
+                GBP
+              </option>
+              <option
+                value="EUR"
+              >
+                EUR
+              </option>
+            </select>
+            <svg
+              aria-hidden="true"
+              class="selectIcon"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="inputWrapper"
+        >
+          <label
+            class="label"
+          >
+            You get
+          </label>
+          <input
+            class="input"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <p
+        class="marketRateDescription"
+      >
+        Market Rate
+      </p>
+      <p
+        class="marketRateValues"
+      >
+        -
+      </p>
+    </div>
+    <button
+      class="converterButton"
+    >
+      Converter Now
+    </button>
+  </form>
 </main>
 `;

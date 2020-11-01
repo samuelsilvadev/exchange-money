@@ -12,6 +12,9 @@
 :root {
 	--gray: #9e9ea7;
 	--whitesmoke: #f4f4fa;
+	--ghostwhite: #fbfbfd;
+	--white: #fff;
+	--black: #000;
 }
 
 html {
@@ -24,4 +27,8 @@ body {
 	font-size: 1.6rem;
 	line-height: 1.4;
 	font-family: 'Open Sans', sans-serif;
+}
+
+button {
+	cursor: pointer;
 }
