@@ -1,0 +1,16 @@
+diff --git a/node_modules/razzle/config/createConfigAsync.js b/node_modules/razzle/config/createConfigAsync.js
+index 843f467..f8d0553 100644
+--- a/node_modules/razzle/config/createConfigAsync.js
++++ b/node_modules/razzle/config/createConfigAsync.js
+@@ -604,7 +604,10 @@ module.exports = (
+                     loader: require.resolve('css-loader'),
+                     options: {
+                       importLoaders: 1,
+-                      modules: { auto: true },
++                      modules: {
++						  auto: true,
++						  localIdentName: '[name]__[local]___[hash:base64:5]',
++						},
+                       onlyLocals: true,
+                     },
+                   },
