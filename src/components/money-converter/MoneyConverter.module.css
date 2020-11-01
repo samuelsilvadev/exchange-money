@@ -1,0 +1,65 @@
+.wrapper {
+	align-content: flex-start;
+	background-color: var(--ghostwhite);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 5rem 2.5rem;
+}
+
+.panelsWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 5rem;
+	width: 100%;
+}
+
+.panel {
+	flex-grow: 1;
+}
+
+.swapButton {
+	align-self: center;
+	align-items: center;
+	background-color: var(--black);
+	border-radius: 50%;
+	border: none;
+	display: flex;
+	color: var(--white);
+	height: 4rem;
+	justify-content: center;
+	margin: 3rem 0;
+	width: 4rem;
+}
+
+.converterButton {
+	background-color: var(--black);
+	border: none;
+	color: var(--white);
+	min-width: 18rem;
+	padding: 2rem;
+}
+
+.marketRateDescription {
+	color: var(--gray);
+}
+
+.marketRateValues {
+	font-size: 2rem;
+}
+
+@media (min-width: 48em) {
+	.wrapper {
+		padding: 10rem 5rem;
+	}
+
+	.panelsWrapper {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.swapButton {
+		margin: 0 3rem;
+	}
+}
