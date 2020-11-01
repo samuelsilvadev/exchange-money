@@ -8,6 +8,8 @@ import React, {
 
 import { getMarketRates } from '../../services/market-rates';
 
+export const POLL_TIME_IN_MILLISECONDS = 10000;
+
 /**
  * The market rates context description.
  *
@@ -28,14 +30,27 @@ export function MarketRatesProvider(props) {
 		setIsLoading(true);
 		setHasError(false);
 
-		getMarketRates()
-			.then((data) => {
-				if (data?.rates) {
-					setMarketRates(data.rates);
-				}
-			})
-			.catch(() => setHasError(true))
-			.finally(() => setIsLoading(false));
+		const getMarketRatesAction = () => {
+			return getMarketRates()
+				.then((data) => {
+					if (data?.rates) {
+						setMarketRates(data.rates);
+					}
+				})
+				.catch(() => setHasError(true))
+				.finally(() => setIsLoading(false));
+		};
+
+		getMarketRatesAction();
+
+		let timerIdentifier = setInterval(
+			getMarketRatesAction,
+			POLL_TIME_IN_MILLISECONDS
+		);
+
+		return () => {
+			clearInterval(timerIdentifier);
+		};
 	}, []);
 
 	const context = useMemo(() => {

@@ -5,10 +5,12 @@ import { renderHook } from '@testing-library/react-hooks';
 import {
 	MarketRatesProvider,
 	useMarketRatesContext,
+	POLL_TIME_IN_MILLISECONDS,
 } from '../MarketRatesProvider';
 
 import { getMarketRates } from '../../../services/market-rates';
 
+jest.useFakeTimers();
 jest.mock('../../../services/market-rates');
 
 const wrapper = ({ children }) => (
@@ -17,6 +19,7 @@ const wrapper = ({ children }) => (
 
 describe('<MarketRatesProvider />', () => {
 	beforeEach(jest.clearAllMocks);
+	afterEach(jest.clearAllTimers);
 
 	it('should render children correctly', async () => {
 		getMarketRates.mockImplementationOnce(() => Promise.resolve());
@@ -98,5 +101,22 @@ describe('<MarketRatesProvider />', () => {
 				'To use the MarketRatesContext correctly you should wrap your component with <MarketRatesProvider />'
 			)
 		);
+	});
+
+	it('should call the getMarketRates from time to time', async () => {
+		getMarketRates.mockImplementation(() =>
+			Promise.resolve({
+				rates: {
+					USD: 1,
+				},
+			})
+		);
+		render(<MarketRatesProvider />);
+
+		jest.advanceTimersByTime(POLL_TIME_IN_MILLISECONDS);
+
+		await waitFor(() => {
+			expect(getMarketRates).toHaveBeenCalledTimes(2);
+		});
 	});
 });
