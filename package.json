@@ -1,6 +1,6 @@
 {
 	"name": "exchange-money",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Exchange your money easily and in an intuitive way.",
 	"main": "index.js",
 	"scripts": {
