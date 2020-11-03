@@ -1,5 +1,6 @@
 ![Issues](https://img.shields.io/github/issues/samuelsilvadev/exchange-money?style=flat-square)
 ![MIT License](https://img.shields.io/github/license/samuelsilvadev/exchange-money?style=flat-square)
+![Workflow](https://img.shields.io/github/workflow/status/samuelsilvadev/exchange-money/Deploy?style=flat-square)
 
 <br />
 <p align="center">
